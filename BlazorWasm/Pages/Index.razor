@@ -1,0 +1,32 @@
+﻿@page "/"
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+<p>
+    <InputFile @onchange="SelectedFile"></InputFile>
+</p>
+
+@if (file != null)
+{
+    <p>Name: @file.Name</p>
+    <p>File Type: @file.Type</p>
+}
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+@code
+{
+    IFileListEntry file;
+
+    private async Task SelectedFile(IFileListEntry[] files)
+    {
+        file = files.FirstOrDefault();
+
+
+        if (file != null)
+        {
+            await 
+        }
+    }
+}
