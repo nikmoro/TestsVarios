@@ -19,7 +19,7 @@ namespace XamarinAppTest
             layout.Children.Add(new Label { Text = "Ingrese su nombre" });
             layout.Children.Add(new Entry());
             layout.Children.Add(new Button { Text = "Aceptar" });
-
+ 
             this.Content = layout;
         }
     }
