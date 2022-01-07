@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcMovie", "MvcMovie\MvcMov
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevExpress17EmptyWebForms", "DevExpress17EmptyWebForms\DevExpress17EmptyWebForms.csproj", "{BAA2FE12-E0ED-4919-A9D9-2D313E7473BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevExpress17ResponsiveWebForms", "DevExpress17ResponsiveWebForms\DevExpress17ResponsiveWebForms.csproj", "{571B4D8D-2C5D-4981-958A-1BBDBD9F4334}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,18 @@ Global
 		{BAA2FE12-E0ED-4919-A9D9-2D313E7473BF}.Release|iPhone.Build.0 = Release|Any CPU
 		{BAA2FE12-E0ED-4919-A9D9-2D313E7473BF}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{BAA2FE12-E0ED-4919-A9D9-2D313E7473BF}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{571B4D8D-2C5D-4981-958A-1BBDBD9F4334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{571B4D8D-2C5D-4981-958A-1BBDBD9F4334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{571B4D8D-2C5D-4981-958A-1BBDBD9F4334}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{571B4D8D-2C5D-4981-958A-1BBDBD9F4334}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{571B4D8D-2C5D-4981-958A-1BBDBD9F4334}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{571B4D8D-2C5D-4981-958A-1BBDBD9F4334}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{571B4D8D-2C5D-4981-958A-1BBDBD9F4334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{571B4D8D-2C5D-4981-958A-1BBDBD9F4334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{571B4D8D-2C5D-4981-958A-1BBDBD9F4334}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{571B4D8D-2C5D-4981-958A-1BBDBD9F4334}.Release|iPhone.Build.0 = Release|Any CPU
+		{571B4D8D-2C5D-4981-958A-1BBDBD9F4334}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{571B4D8D-2C5D-4981-958A-1BBDBD9F4334}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
