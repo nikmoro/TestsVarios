@@ -7,65 +7,51 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <dx:ASPxGridView ID="ASPxGridView1" runat="server" Width="100%" AutoGenerateColumns="False" DataSourceID="SqlDataSource" KeyFieldName="Id">
+
+    <div style="display: block">
+        <asp:Label runat="server" ID="lblCatMsgError" ForeColor="Red"></asp:Label>
+    </div>
+
+    <dx:ASPxGridView ID="ASPxGridView1" runat="server" Width="100%" AutoGenerateColumns="False"
+        DataSourceID="SqlDataSource" KeyFieldName="idDigitoMinistracion"
+        OnInitNewRow="ASPxGridView1_InitNewRow"
+        OnRowInserting="ASPxGridView1_RowInserting"
+        OnRowUpdating="ASPxGridView1_RowUpdating"
+        OnRowDeleting="ASPxGridView1_RowDeleting">
+
         <SettingsPager PageSize="15">
         </SettingsPager>
         <Settings ShowTitlePanel="True" />
         <SettingsBehavior AllowFocusedRow="True" />
         <SettingsSearchPanel Visible="True" />
-        <SettingsText Title="Precios" />
+        <SettingsText Title="DigitosMinistración" />
+
         <Columns>
-            <dx:GridViewCommandColumn ShowEditButton="True" ShowInCustomizationForm="True" ShowNewButtonInHeader="True" ShowDeleteButton="true" VisibleIndex="0">
+            <dx:GridViewCommandColumn ShowEditButton="True" ShowInCustomizationForm="True" ShowNewButtonInHeader="True" ShowDeleteButton="true" VisibleIndex="0" Width="60px">
             </dx:GridViewCommandColumn>
-            <dx:GridViewDataTextColumn FieldName="Id" ReadOnly="True" ShowInCustomizationForm="True" VisibleIndex="1">
+            <dx:GridViewDataTextColumn FieldName="idDigitoMinistracion" ReadOnly="True" Visible="False" VisibleIndex="0">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="CC" ShowInCustomizationForm="True" VisibleIndex="2">
+            <dx:GridViewDataTextColumn FieldName="Codigo" ShowInCustomizationForm="True" VisibleIndex="1" Caption="Código">
+                <PropertiesTextEdit>
+                    <ValidationSettings SetFocusOnError="True">
+                        <RequiredField ErrorText="* Requerido" IsRequired="True" />
+                    </ValidationSettings>
+                </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Clave" ShowInCustomizationForm="True" VisibleIndex="3">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Descripcion" ShowInCustomizationForm="True" VisibleIndex="4">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="FF" ShowInCustomizationForm="True" VisibleIndex="5">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Volumen1" ShowInCustomizationForm="True" VisibleIndex="6">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Precio1" ShowInCustomizationForm="True" VisibleIndex="7">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="MonedaContrato" ShowInCustomizationForm="True" VisibleIndex="8">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="TipoDecambio" ShowInCustomizationForm="True" VisibleIndex="9">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Entregados" ShowInCustomizationForm="True" VisibleIndex="10">
+            <dx:GridViewDataTextColumn FieldName="Descripcion" ShowInCustomizationForm="True" VisibleIndex="2" Caption="Descripción">
+                <PropertiesTextEdit>
+                    <ValidationSettings SetFocusOnError="True">
+                        <RequiredField ErrorText="* Requerido" IsRequired="True" />
+                    </ValidationSettings>
+                </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>
         </Columns>
     </dx:ASPxGridView>
-    <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:IepcdbConnectionString %>" DeleteCommand="DELETE FROM [Precios] WHERE [Id] = @Id" InsertCommand="INSERT INTO [Precios] ([Id], [CC], [Clave], [Descripcion], [FF], [Volumen1], [Precio1], [MonedaContrato], [TipoDecambio], [Entregados]) VALUES (@Id, @CC, @Clave, @Descripcion, @FF, @Volumen1, @Precio1, @MonedaContrato, @TipoDecambio, @Entregados)" SelectCommand="SELECT * FROM [Precios]" UpdateCommand="UPDATE [Precios] SET [CC] = @CC, [Clave] = @Clave, [Descripcion] = @Descripcion, [FF] = @FF, [Volumen1] = @Volumen1, [Precio1] = @Precio1, [MonedaContrato] = @MonedaContrato, [TipoDecambio] = @TipoDecambio, [Entregados] = @Entregados WHERE [Id] = @Id">
-        <DeleteParameters>
-            <asp:Parameter Name="Id" Type="Int32" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="Id" Type="Int32" />
-            <asp:Parameter Name="CC" Type="Int32" />
-            <asp:Parameter Name="Clave" Type="String" />
-            <asp:Parameter Name="Descripcion" Type="String" />
-            <asp:Parameter Name="FF" Type="String" />
-            <asp:Parameter Name="Volumen1" Type="Decimal" />
-            <asp:Parameter Name="Precio1" Type="Decimal" />
-            <asp:Parameter Name="MonedaContrato" Type="String" />
-            <asp:Parameter Name="TipoDecambio" Type="Decimal" />
-            <asp:Parameter Name="Entregados" Type="Decimal" />
-        </InsertParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="CC" Type="Int32" />
-            <asp:Parameter Name="Clave" Type="String" />
-            <asp:Parameter Name="Descripcion" Type="String" />
-            <asp:Parameter Name="FF" Type="String" />
-            <asp:Parameter Name="Volumen1" Type="Decimal" />
-            <asp:Parameter Name="Precio1" Type="Decimal" />
-            <asp:Parameter Name="MonedaContrato" Type="String" />
-            <asp:Parameter Name="TipoDecambio" Type="Decimal" />
-            <asp:Parameter Name="Entregados" Type="Decimal" />
-            <asp:Parameter Name="Id" Type="Int32" />
-        </UpdateParameters>
+
+    <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:IepcdbConnectionString %>" 
+        SelectCommand="sp_DigitosMinistracion" SelectCommandType="StoredProcedure">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="Consultar" Name="Op" Type="String"></asp:Parameter>
+        </SelectParameters>
     </asp:SqlDataSource>
 </asp:Content>

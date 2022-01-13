@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="iepcdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DigitosMinistracion">
+          <Key>
+            <PropertyRef Name="idDigitoMinistracion" />
+          </Key>
+          <Property Name="idDigitoMinistracion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="1" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="RegFecha" Type="datetime" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="idUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="ObjetosGastoCategoria">
+          <Key>
+            <PropertyRef Name="idObjetoGastoCategoria" />
+          </Key>
+          <Property Name="idObjetoGastoCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="1" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="87" />
+          <Property Name="RegFecha" Type="datetime" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="idUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="ProgramasFondo">
+          <Key>
+            <PropertyRef Name="idProgramaFondo" />
+          </Key>
+          <Property Name="idProgramaFondo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="2" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="RegFecha" Type="datetime" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="idUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="ProyectosOrigenAsignacion">
+          <Key>
+            <PropertyRef Name="idProyectoOrigenAsignacion" />
+          </Key>
+          <Property Name="idProyectoOrigenAsignacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="2" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="30" />
+          <Property Name="RegFecha" Type="datetime" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="idUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="SubFuentesFinanciamiento">
+          <Key>
+            <PropertyRef Name="idSubFuenteFinanciamiento" />
+          </Key>
+          <Property Name="idSubFuenteFinanciamiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="1" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="RegFecha" Type="datetime" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="idUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="SubSubFuncion">
+          <Key>
+            <PropertyRef Name="idSubSubFuncion" />
+          </Key>
+          <Property Name="idSubSubFuncion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idSubFuncion" Type="int" />
+          <Property Name="Codigo" Type="varchar" MaxLength="1" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+          <Property Name="RegFecha" Type="datetime" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="idUsuario" Type="int" />
+        </EntityType>
+        <EntityType Name="TiposRecurso">
+          <Key>
+            <PropertyRef Name="idTipoRecurso" />
+          </Key>
+          <Property Name="idTipoRecurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="varchar" MaxLength="1" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="RegFecha" Type="datetime" />
+          <Property Name="Activo" Type="bit" />
+          <Property Name="idUsuario" Type="int" />
+        </EntityType>
+        <EntityContainer Name="iepcdbModelStoreContainer">
+          <EntitySet Name="DigitosMinistracion" EntityType="Self.DigitosMinistracion" Schema="pres" store:Type="Tables" />
+          <EntitySet Name="ObjetosGastoCategoria" EntityType="Self.ObjetosGastoCategoria" Schema="pres" store:Type="Tables" />
+          <EntitySet Name="ProgramasFondo" EntityType="Self.ProgramasFondo" Schema="pres" store:Type="Tables" />
+          <EntitySet Name="ProyectosOrigenAsignacion" EntityType="Self.ProyectosOrigenAsignacion" Schema="pres" store:Type="Tables" />
+          <EntitySet Name="SubFuentesFinanciamiento" EntityType="Self.SubFuentesFinanciamiento" Schema="pres" store:Type="Tables" />
+          <EntitySet Name="SubSubFuncion" EntityType="Self.SubSubFuncion" Schema="pres" store:Type="Tables" />
+          <EntitySet Name="TiposRecurso" EntityType="Self.TiposRecurso" Schema="pres" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="iepcdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DigitosMinistracion">
+          <Key>
+            <PropertyRef Name="idDigitoMinistracion" />
+          </Key>
+          <Property Name="idDigitoMinistracion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegFecha" Type="DateTime" Precision="3" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="idUsuario" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ObjetosGastoCategoria">
+          <Key>
+            <PropertyRef Name="idObjetoGastoCategoria" />
+          </Key>
+          <Property Name="idObjetoGastoCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="87" FixedLength="false" Unicode="false" />
+          <Property Name="RegFecha" Type="DateTime" Precision="3" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="idUsuario" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ProgramasFondo">
+          <Key>
+            <PropertyRef Name="idProgramaFondo" />
+          </Key>
+          <Property Name="idProgramaFondo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RegFecha" Type="DateTime" Precision="3" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="idUsuario" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ProyectosOrigenAsignacion">
+          <Key>
+            <PropertyRef Name="idProyectoOrigenAsignacion" />
+          </Key>
+          <Property Name="idProyectoOrigenAsignacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="RegFecha" Type="DateTime" Precision="3" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="idUsuario" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SubFuentesFinanciamiento">
+          <Key>
+            <PropertyRef Name="idSubFuenteFinanciamiento" />
+          </Key>
+          <Property Name="idSubFuenteFinanciamiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RegFecha" Type="DateTime" Precision="3" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="idUsuario" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SubSubFuncion">
+          <Key>
+            <PropertyRef Name="idSubSubFuncion" />
+          </Key>
+          <Property Name="idSubSubFuncion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idSubFuncion" Type="Int32" />
+          <Property Name="Codigo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RegFecha" Type="DateTime" Precision="3" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="idUsuario" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TiposRecurso">
+          <Key>
+            <PropertyRef Name="idTipoRecurso" />
+          </Key>
+          <Property Name="idTipoRecurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegFecha" Type="DateTime" Precision="3" />
+          <Property Name="Activo" Type="Boolean" />
+          <Property Name="idUsuario" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="iepcdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DigitosMinistracions" EntityType="Self.DigitosMinistracion" />
+          <EntitySet Name="ObjetosGastoCategorias" EntityType="Self.ObjetosGastoCategoria" />
+          <EntitySet Name="ProgramasFondoes" EntityType="Self.ProgramasFondo" />
+          <EntitySet Name="ProyectosOrigenAsignacions" EntityType="Self.ProyectosOrigenAsignacion" />
+          <EntitySet Name="SubFuentesFinanciamientoes" EntityType="Self.SubFuentesFinanciamiento" />
+          <EntitySet Name="SubSubFuncions" EntityType="Self.SubSubFuncion" />
+          <EntitySet Name="TiposRecursoes" EntityType="Self.TiposRecurso" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="iepcdbModelStoreContainer" CdmEntityContainer="iepcdbEntities">
+          <EntitySetMapping Name="DigitosMinistracions">
+            <EntityTypeMapping TypeName="iepcdbModel.DigitosMinistracion">
+              <MappingFragment StoreEntitySet="DigitosMinistracion">
+                <ScalarProperty Name="idDigitoMinistracion" ColumnName="idDigitoMinistracion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="RegFecha" ColumnName="RegFecha" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ObjetosGastoCategorias">
+            <EntityTypeMapping TypeName="iepcdbModel.ObjetosGastoCategoria">
+              <MappingFragment StoreEntitySet="ObjetosGastoCategoria">
+                <ScalarProperty Name="idObjetoGastoCategoria" ColumnName="idObjetoGastoCategoria" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="RegFecha" ColumnName="RegFecha" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProgramasFondoes">
+            <EntityTypeMapping TypeName="iepcdbModel.ProgramasFondo">
+              <MappingFragment StoreEntitySet="ProgramasFondo">
+                <ScalarProperty Name="idProgramaFondo" ColumnName="idProgramaFondo" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="RegFecha" ColumnName="RegFecha" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProyectosOrigenAsignacions">
+            <EntityTypeMapping TypeName="iepcdbModel.ProyectosOrigenAsignacion">
+              <MappingFragment StoreEntitySet="ProyectosOrigenAsignacion">
+                <ScalarProperty Name="idProyectoOrigenAsignacion" ColumnName="idProyectoOrigenAsignacion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="RegFecha" ColumnName="RegFecha" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubFuentesFinanciamientoes">
+            <EntityTypeMapping TypeName="iepcdbModel.SubFuentesFinanciamiento">
+              <MappingFragment StoreEntitySet="SubFuentesFinanciamiento">
+                <ScalarProperty Name="idSubFuenteFinanciamiento" ColumnName="idSubFuenteFinanciamiento" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="RegFecha" ColumnName="RegFecha" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubSubFuncions">
+            <EntityTypeMapping TypeName="iepcdbModel.SubSubFuncion">
+              <MappingFragment StoreEntitySet="SubSubFuncion">
+                <ScalarProperty Name="idSubSubFuncion" ColumnName="idSubSubFuncion" />
+                <ScalarProperty Name="idSubFuncion" ColumnName="idSubFuncion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="RegFecha" ColumnName="RegFecha" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TiposRecursoes">
+            <EntityTypeMapping TypeName="iepcdbModel.TiposRecurso">
+              <MappingFragment StoreEntitySet="TiposRecurso">
+                <ScalarProperty Name="idTipoRecurso" ColumnName="idTipoRecurso" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="RegFecha" ColumnName="RegFecha" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

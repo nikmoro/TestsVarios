@@ -45,11 +45,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Web.Resources.v17.2, Version=17.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -71,11 +80,29 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DAL\IepcDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IepcDataModel.Context.cs</LastGenOutput>
+      <DependentUpon>IepcDataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="DAL\IepcDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IepcDataModel.edmx</DependentUpon>
+      <LastGenOutput>IepcDataModel.cs</LastGenOutput>
+    </Content>
     <Content Include="UI\WebForm1.aspx" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
+    <EntityDeploy Include="DAL\IepcDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IepcDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DAL\IepcDataModel.edmx.diagram">
+      <DependentUpon>IepcDataModel.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -84,6 +111,44 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\BasicAccess.cs" />
+    <Compile Include="BLL\DigitosMinistracion.cs" />
+    <Compile Include="DAL\DigitosMinistracion.cs">
+      <DependentUpon>IepcDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\IepcDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IepcDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\IepcDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IepcDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\IepcDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IepcDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ObjetosGastoCategoria.cs">
+      <DependentUpon>IepcDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ProgramasFondo.cs">
+      <DependentUpon>IepcDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\ProyectosOrigenAsignacion.cs">
+      <DependentUpon>IepcDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\SubFuentesFinanciamiento.cs">
+      <DependentUpon>IepcDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\SubSubFuncion.cs">
+      <DependentUpon>IepcDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\TiposRecurso.cs">
+      <DependentUpon>IepcDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -101,6 +166,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
