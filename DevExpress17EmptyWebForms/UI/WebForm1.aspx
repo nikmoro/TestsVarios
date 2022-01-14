@@ -23,35 +23,39 @@
         </SettingsPager>
         <Settings ShowTitlePanel="True" />
         <SettingsBehavior AllowFocusedRow="True" />
-        <SettingsSearchPanel Visible="True" />
         <SettingsText Title="DigitosMinistración" />
 
         <Columns>
-            <dx:GridViewCommandColumn ShowEditButton="True" ShowInCustomizationForm="True" ShowNewButtonInHeader="True" ShowDeleteButton="true" VisibleIndex="0" Width="60px">
-            </dx:GridViewCommandColumn>
-            <dx:GridViewDataTextColumn FieldName="idDigitoMinistracion" ReadOnly="True" Visible="False" VisibleIndex="0">
+            <dx:GridViewCommandColumn ShowEditButton="True" VisibleIndex="0" ShowNewButtonInHeader="True" ShowDeleteButton="True" Width="60px"></dx:GridViewCommandColumn>
+            <dx:GridViewDataTextColumn FieldName="idDigitoMinistracion" ReadOnly="True" VisibleIndex="0" Visible="False">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Codigo" ShowInCustomizationForm="True" VisibleIndex="1" Caption="Código">
-                <PropertiesTextEdit>
-                    <ValidationSettings SetFocusOnError="True">
-                        <RequiredField ErrorText="* Requerido" IsRequired="True" />
-                    </ValidationSettings>
-                </PropertiesTextEdit>
+            <dx:GridViewDataTextColumn FieldName="Codigo" VisibleIndex="1">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Descripcion" ShowInCustomizationForm="True" VisibleIndex="2" Caption="Descripción">
-                <PropertiesTextEdit>
-                    <ValidationSettings SetFocusOnError="True">
-                        <RequiredField ErrorText="* Requerido" IsRequired="True" />
-                    </ValidationSettings>
-                </PropertiesTextEdit>
+            <dx:GridViewDataTextColumn FieldName="Descripcion" VisibleIndex="2">
             </dx:GridViewDataTextColumn>
         </Columns>
     </dx:ASPxGridView>
 
-    <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:IepcdbConnectionString %>" 
-        SelectCommand="sp_DigitosMinistracion" SelectCommandType="StoredProcedure">
+    <asp:SqlDataSource ID="SqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:IepcdbConnectionString %>"
+        SelectCommand="sp_DigitosMinistracion" SelectCommandType="StoredProcedure"
+        InsertCommand="sp_DigitosMinistracion" InsertCommandType="StoredProcedure"
+        UpdateCommand="sp_DigitosMinistracion" UpdateCommandType="StoredProcedure"
+        DeleteCommand="sp_DigitosMinistracion" DeleteCommandType="StoredProcedure">
+
         <SelectParameters>
-            <asp:Parameter DefaultValue="Consultar" Name="Op" Type="String"></asp:Parameter>
+            <asp:Parameter DefaultValue="Consultar" Name="Op" Type="String" />
         </SelectParameters>
+
+        <UpdateParameters>
+            <asp:Parameter DefaultValue="Actualizar" Name="Op" Type="String" />
+        </UpdateParameters>
+
+        <InsertParameters>
+            <asp:Parameter DefaultValue="Nuevo" Name="Op" Type="String" />
+        </InsertParameters>
+
+        <DeleteParameters>
+            <asp:Parameter DefaultValue="EliminarVirtual" Name="Op" Type="String" />
+        </DeleteParameters>
     </asp:SqlDataSource>
 </asp:Content>
